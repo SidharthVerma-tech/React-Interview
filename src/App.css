@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.accordian{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item{
+  background-color: bisque;
+  text-align: center;
+  width: 50vw;
+  margin: 10px;
+  padding: 4px;
+}
+.items{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.btn{
+  background-color: #61dafb;
+  padding: 10px;
+  margin: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
