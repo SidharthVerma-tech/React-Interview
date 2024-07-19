@@ -1,16 +1,30 @@
 import './App.css';
-import Accordian2 from './components/Accordian2';
+// import Accordian2 from './components/Accordian2';
 //import Accordian2 from './components/Accordian2';
-import ImageSlider from './components/ImageSlider/ImageSlider';
-//import Accordian from './components/Accordian';
-//import Random from './components/Random';
+// import ImageSlider from './components/ImageSlider/ImageSlider';
+import './App.css';
+import TicTacToe from './components/Tic-Tac-Toe/TicTacToe';
+import { useState } from 'react';
 
 function App() {
-  return (
+  const [board, setBoard] = useState(Array(9).fill(null));
+  const [xPlaying, setXPlaying] = useState(true);
 
+  const handleBoxClick = (boxIdx) => {
+    const updatedBoard = board.map((value, idx) => {
+      if (idx === boxIdx) {
+        return xPlaying ? "X" : "O"; 
+      } else {
+        return value;
+      }
+    });
+    setBoard(updatedBoard);
+    setXPlaying(!xPlaying);
+  };
+
+  return (
     <div className="App">
-      {/* <Accordian2/> */}
-      <ImageSlider url={"https://picsum.photos/v2/list"} limit={10} pages={1}/>
+      <TicTacToe board={board} onClick={handleBoxClick} />
     </div>
   );
 }
